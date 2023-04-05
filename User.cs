@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace LastProject
 {
-    
+    public class User
+    {
 
-    
+        public string Username { get; set; }
+        public string Password { get; set; }
+    }
 }

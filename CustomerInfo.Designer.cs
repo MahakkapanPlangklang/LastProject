@@ -62,7 +62,7 @@
             button1.Name = "button1";
             button1.Size = new Size(94, 29);
             button1.TabIndex = 2;
-            button1.Text = "button1";
+            button1.Text = "บันทึก";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
@@ -102,7 +102,6 @@
             Controls.Add(label1);
             Name = "CustomerInfo";
             Text = "CustomerInfo";
-            Load += CustomerInfo_Load;
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider3).EndInit();
             ResumeLayout(false);

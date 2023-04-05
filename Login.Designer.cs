@@ -1,6 +1,6 @@
 ﻿namespace LastProject
 {
-    partial class AddPayment
+    partial class Login
     {
         /// <summary>
         /// Required designer variable.
@@ -28,102 +28,90 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
             label1 = new Label();
-            textBox1 = new TextBox();
             label2 = new Label();
             label3 = new Label();
+            textBox1 = new TextBox();
             textBox2 = new TextBox();
-            textBox3 = new TextBox();
+            button1 = new Button();
             SuspendLayout();
-            // 
-            // button1
-            // 
-            button1.Location = new Point(77, 209);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 0;
-            button1.Text = "บันทึก";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(37, 37);
+            label1.Location = new Point(115, 26);
             label1.Name = "label1";
-            label1.Size = new Size(68, 20);
-            label1.TabIndex = 1;
-            label1.Text = "จำนวนเงิน";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(142, 37);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 2;
+            label1.Size = new Size(76, 20);
+            label1.TabIndex = 0;
+            label1.Text = "ยินดีต้อนรับ";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(37, 95);
+            label2.Location = new Point(37, 69);
             label2.Name = "label2";
-            label2.Size = new Size(61, 20);
-            label2.TabIndex = 3;
-            label2.Text = "วันที่ชำระ";
+            label2.Size = new Size(50, 20);
+            label2.TabIndex = 1;
+            label2.Text = "ชื่อผู้ใช้";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(37, 158);
+            label3.Location = new Point(37, 123);
             label3.Name = "label3";
-            label3.Size = new Size(48, 20);
-            label3.TabIndex = 4;
-            label3.Text = "เลขโต๊ะ";
+            label3.Size = new Size(57, 20);
+            label3.TabIndex = 2;
+            label3.Text = "รหัสผ่าน";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(115, 69);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(125, 27);
+            textBox1.TabIndex = 3;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(142, 92);
+            textBox2.Location = new Point(115, 116);
             textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
             textBox2.Size = new Size(125, 27);
-            textBox2.TabIndex = 5;
+            textBox2.TabIndex = 3;
             // 
-            // textBox3
+            // button1
             // 
-            textBox3.Location = new Point(142, 151);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(125, 27);
-            textBox3.TabIndex = 6;
+            button1.Location = new Point(124, 168);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 4;
+            button1.Text = "ล๊อคอิน";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
-            // AddPayment
+            // Login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(297, 265);
-            Controls.Add(textBox3);
+            ClientSize = new Size(289, 209);
+            Controls.Add(button1);
             Controls.Add(textBox2);
+            Controls.Add(textBox1);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(textBox1);
             Controls.Add(label1);
-            Controls.Add(button1);
-            MaximizeBox = false;
-            Name = "AddPayment";
-            Text = "AddPayment";
-            Load += AddPayment_Load;
+            Name = "Login";
+            Text = "Login";
+            FormClosing += Login_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button button1;
         private Label label1;
-        private TextBox textBox1;
         private Label label2;
         private Label label3;
+        public TextBox textBox1;
         private TextBox textBox2;
-        private TextBox textBox3;
+        private Button button1;
     }
 }

@@ -4,15 +4,20 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
+using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.DataFormats;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace LastProject
 {
     public partial class CustomerInfo : Form
     {
+        Customer ci;
         public CustomerInfo()
         {
             InitializeComponent();
@@ -34,14 +39,13 @@ namespace LastProject
             }
             else
             {
+               
                 DialogResult = DialogResult.OK;
-
             }
+            
         }
 
-        private void CustomerInfo_Load(object sender, EventArgs e)
-        {
 
-        }
     }
 }
+

@@ -1,13 +1,17 @@
-﻿using System;
+﻿using CsvHelper;
+using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.DataFormats;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 
 namespace LastProject
@@ -15,6 +19,7 @@ namespace LastProject
     public partial class Mainform : Form
     {
         List<Customer> customerlist = new List<Customer>();
+
 
         public Mainform()
         {
@@ -62,9 +67,10 @@ namespace LastProject
             }
             else if (label.BackColor == Color.YellowGreen)
             {
-                MessageBox.Show("The chair" + label.Text + "is choose");
+                MessageBox.Show("โต๊ะหมายเลข" + "" + label.Text + "" + "ถูกจองไปแล้ว");
             }
         }
+
 
         private void Mainform_Load(object sender, EventArgs e)
         {
@@ -97,8 +103,9 @@ namespace LastProject
                 customerlist.Add(c);
 
                 DisplayTotalMoney();
-                DisplayCustomeinListbox();
+                DisplayCustomerinListbox();
             }
+
         }
         private void DisplayTotalMoney()
         {
@@ -108,10 +115,11 @@ namespace LastProject
             {
                 totalMoney += c.Price;
                 totalprice.Text = totalMoney + "บาท";
+
             }
         }
 
-        private void DisplayCustomeinListbox()
+        private void DisplayCustomerinListbox()
         {
             NameList.Items.Clear();
             foreach (Customer c in customerlist)
@@ -132,19 +140,19 @@ namespace LastProject
         private void button2_Click(object sender, EventArgs e)
         {
             Customer c = NameList.SelectedItem as Customer;
-            if(NameList.SelectedIndex != -1)
+            if (NameList.SelectedIndex != -1)
             {
-                for(int i = 0; i < table.Controls.Count; i++) 
-                { 
+                for (int i = 0; i < table.Controls.Count; i++)
+                {
                     Label label = table.Controls[i] as Label;
                     int Cchair = int.Parse(label.Text);
                     int flag = 0;
-                    while(c.chairs.Count > 0 && flag < c.chairs.Count) 
+                    while (c.chairs.Count > 0 && flag < c.chairs.Count)
                     {
                         int orderedchair = c.chairs[0];
-                        if(Cchair == orderedchair)
+                        if (Cchair == orderedchair)
                         {
-                            table.BackColor = Color.White;
+                            label.BackColor = Color.White;
                             c.chairs.Remove(orderedchair);
                         }
                         flag++;
@@ -152,12 +160,79 @@ namespace LastProject
                 }
                 customerlist.Remove(c);
                 DisplayTotalMoney();
-                DisplayCustomeinListbox();
+                DisplayCustomerinListbox();
             }
             else
             {
                 MessageBox.Show("โปรดเลือก");
             }
+        }
+
+        private void Mainform_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void ลอคเอาทToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Login loginForm = new Login(); // สร้าง instance ของ log in form
+            loginForm.Show(); // เปิด log in form
+            this.Hide(); // ซ่อน main form
+        }
+
+        private void รายชอToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void บนทกToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveListBoxToCSV();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void SaveListBoxToCSV()
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "CSV (*.csv)|*.csv";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                using (StreamWriter sw = new StreamWriter(sfd.FileName))
+                {
+                    foreach (Customer item in NameList.Items)
+                    {
+                        sw.WriteLine($"{item.Name},{item.Phone}");
+                    }
+                }
+                MessageBox.Show("Saved successfully.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+        private void OpenCSVToListBox()
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "CSV (*.csv)|*.csv";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                NameList.Items.Clear();
+                using (StreamReader sr = new StreamReader(ofd.FileName))
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        string line = sr.ReadLine();
+                        NameList.Items.Add(line);
+                    }
+                }
+                MessageBox.Show("Opened successfully.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+        }
+
+        private void เปดToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenCSVToListBox();
         }
     }
 }
