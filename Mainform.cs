@@ -234,5 +234,17 @@ namespace LastProject
         {
             OpenCSVToListBox();
         }
+
+        private void รายชอToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            //CustomerList cl = new CustomerList(); 
+            //cl.Show(); 
+            //this.Hide();
+            this.Hide();
+            CustomerList cl = new CustomerList();
+            cl.ShowDialog();
+            cl = null;
+            this.Show();
+        }
     }
 }

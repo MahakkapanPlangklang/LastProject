@@ -44,6 +44,7 @@
             บนทกToolStripMenuItem = new ToolStripMenuItem();
             เปดToolStripMenuItem = new ToolStripMenuItem();
             ลอคเอาทToolStripMenuItem = new ToolStripMenuItem();
+            รายชอToolStripMenuItem = new ToolStripMenuItem();
             groupBox1.SuspendLayout();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -172,7 +173,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { ไฟลToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { ไฟลToolStripMenuItem, รายชอToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(746, 28);
@@ -206,6 +207,13 @@
             ลอคเอาทToolStripMenuItem.Size = new Size(170, 26);
             ลอคเอาทToolStripMenuItem.Text = "ออกจากระบบ";
             ลอคเอาทToolStripMenuItem.Click += ลอคเอาทToolStripMenuItem_Click;
+            // 
+            // รายชอToolStripMenuItem
+            // 
+            รายชอToolStripMenuItem.Name = "รายชอToolStripMenuItem";
+            รายชอToolStripMenuItem.Size = new Size(61, 24);
+            รายชอToolStripMenuItem.Text = "รายชื่อ";
+            รายชอToolStripMenuItem.Click += รายชอToolStripMenuItem_Click_1;
             // 
             // Mainform
             // 
@@ -253,5 +261,6 @@
         private ToolStripMenuItem บนทกToolStripMenuItem;
         private ToolStripMenuItem เปดToolStripMenuItem;
         private ToolStripMenuItem ลอคเอาทToolStripMenuItem;
+        private ToolStripMenuItem รายชอToolStripMenuItem;
     }
 }
